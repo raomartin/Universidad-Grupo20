@@ -4,10 +4,15 @@ package universidad.grupo20;
 import java.sql.Connection;
 import java.time.LocalDate;
 import java.time.Month;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JOptionPane;
 import universidad.grupo20.AccesoADatos.AlumnoData;
 import universidad.grupo20.AccesoADatos.Conexion;
+import universidad.grupo20.AccesoADatos.InscripcionData;
 import universidad.grupo20.AccesoADatos.MateriaData;
 import universidad.grupo20.Entidades.Alumno;
+import universidad.grupo20.Entidades.Inscripcion;
 import universidad.grupo20.Entidades.Materia;
 
 public class UniversidadGrupo20 {
@@ -15,9 +20,9 @@ public class UniversidadGrupo20 {
     public static void main(String[] args) {
         // TODO code application logic here
 
-        Connection con = Conexion.getConexion();
+//        Connection con = Conexion.getConexion();
         AlumnoData alu = new AlumnoData();
-                
+
 //        Alumno Juan = new Alumno(42273781, "Rodríguez", "Juan", LocalDate.of(1998, 4, 25), true);
 //        Alumno Pedro = new Alumno(387626909, "Perez", "Pedro", LocalDate.of(1996, 7, 10), true);
 //        Alumno Esteban = new Alumno(298426909, "Quito", "Esteban", LocalDate.of(1998, 10, 1), true);
@@ -39,7 +44,6 @@ public class UniversidadGrupo20 {
 //            System.out.println("DNI "+alumnoEncontrado.getDni());
 //            System.out.println("Fecha nacimineto "+alumnoEncontrado.getFechaNac());
 //            System.out.println("Estado "+alumnoEncontrado.isEstado());
-
 //
 //            Alumno buscadoporDni=alu.buscarAlumnoPorDni(298426909);
 //            System.out.println("Alumno encontado por DNI "+buscadoporDni.getDni());
@@ -51,28 +55,38 @@ public class UniversidadGrupo20 {
 //            alu.borrarAlumno(3);
 //        for (Alumno alumno : alu.listarAlumnos()) {
 //          System.out.println("ID " + alumno.getIdAlumno() + "Nombre " + alumno.getNombre() + "Apellido" + alumno.getApellido());
+        MateriaData mat = new MateriaData();
+// Materia matematicas=new Materia("Matematicas",4,true);
+// Materia lengua=new Materia("Lengua",2,true);
+// Materia geografia=new Materia("Geografia",3,false);
+// 
+// mat.guardarMateria(matematicas);
+// mat.guardarMateria(lengua);
+// mat.guardarMateria(geografia);
+
+//        System.out.println(mat.buscarMateria(1));
+//        System.out.println(mat.buscarMateria(2));
+//        System.out.println(mat.buscarMateria(3));
+//        for(Materia materia: mat.listarMaterias()){
+//            System.out.println(materia);
+//        }
 
 
-MateriaData mat=new MateriaData();
- //Materia matematicas=new Materia("Matematicas",4,true);
- //Materia lengua=new Materia("Lengua",2,true);
- //Materia geografia=new Materia("Geografia",3,false);
- 
- //mat.guardarMateria(matematicas);
- //mat.guardarMateria(lengua);
- //mat.guardarMateria(geografia);
- 
- mat.buscarMateria(1);
+        InscripcionData insc = new InscripcionData();
+        Inscripcion inscrip1 = new Inscripcion(0, alu.buscarAlumno(1), mat.buscarMateria(1));
+        Inscripcion inscrip2 = new Inscripcion(0, alu.buscarAlumno(2), mat.buscarMateria(1));
+        Inscripcion inscrip3 = new Inscripcion(0, alu.buscarAlumno(5), mat.buscarMateria(2));
+        Inscripcion inscrip4 = new Inscripcion(0, alu.buscarAlumno(4), mat.buscarMateria(2));
+        
+        insc.guardarInscripcion(inscrip1);
+        insc.guardarInscripcion(inscrip2);
+        insc.guardarInscripcion(inscrip3);
+        insc.guardarInscripcion(inscrip4);
+        
+        
 
-
-
-
-
-
-
-
-        }
     }
+}
 
 
 

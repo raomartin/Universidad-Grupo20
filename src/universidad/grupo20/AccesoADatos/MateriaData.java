@@ -28,8 +28,7 @@ public class MateriaData {
       
         /*UTILIZAMOS EL METODO INSERT E INICIALIZAMOS LOS CAMPOS(DNI,APELLIDO ETC) CON CARACTERES COMODINES(?),
             PARA REMPLAZARLOS LUEGO*/
-        String sql = "INSERT INTO materia(Nombre,año,estado)"
-                + "VALUES (?,?,?)";
+        String sql = "INSERT INTO materia(Nombre,año,estado)VALUES (?,?,?)";
 
         try {
             //GENERAMOS OBJETO Y PEDIMOS QUE NOS RETORNE LAS ID GENERADAS AUTOMATICAMENTE(sql,Statement.return_generated_keys)
@@ -41,6 +40,7 @@ public class MateriaData {
             ps.setString(1,materia.getNombre());
             ps.setInt(2, materia.getAnio());
             ps.setBoolean(3,materia.isEstado());
+            ps.executeUpdate();
             
             
             //PEDIMOS LA CLAVE GENERADA AUTOMATICAMENTE(ID ALUMNO)

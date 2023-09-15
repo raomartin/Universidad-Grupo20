@@ -6,7 +6,9 @@ import java.time.LocalDate;
 import java.time.Month;
 import universidad.grupo20.AccesoADatos.AlumnoData;
 import universidad.grupo20.AccesoADatos.Conexion;
+import universidad.grupo20.AccesoADatos.MateriaData;
 import universidad.grupo20.Entidades.Alumno;
+import universidad.grupo20.Entidades.Materia;
 
 public class UniversidadGrupo20 {
 
@@ -15,6 +17,7 @@ public class UniversidadGrupo20 {
 
         Connection con = Conexion.getConexion();
         AlumnoData alu = new AlumnoData();
+                
 //        Alumno Juan = new Alumno(42273781, "Rodríguez", "Juan", LocalDate.of(1998, 4, 25), true);
 //        Alumno Pedro = new Alumno(387626909, "Perez", "Pedro", LocalDate.of(1996, 7, 10), true);
 //        Alumno Esteban = new Alumno(298426909, "Quito", "Esteban", LocalDate.of(1998, 10, 1), true);
@@ -36,7 +39,6 @@ public class UniversidadGrupo20 {
 //            System.out.println("DNI "+alumnoEncontrado.getDni());
 //            System.out.println("Fecha nacimineto "+alumnoEncontrado.getFechaNac());
 //            System.out.println("Estado "+alumnoEncontrado.isEstado());
-            
 
 //
 //            Alumno buscadoporDni=alu.buscarAlumnoPorDni(298426909);
@@ -46,14 +48,32 @@ public class UniversidadGrupo20 {
 //            System.out.println("Nombre "+buscadoporDni.getNombre());
 //            System.out.println("Fecha de nacimiento"+buscadoporDni.getFechaNac() );
 //            System.out.println("Estado "+buscadoporDni.isEstado());
-
-                
-              
 //            alu.borrarAlumno(3);
-           
-           for(Alumno alumno:alu.listarAlumnos()){
-               System.out.println("ID "+alumno.getIdAlumno()+ "Nombre "+alumno.getNombre()+ "Apellido"+alumno.getApellido());
-                       
+//        for (Alumno alumno : alu.listarAlumnos()) {
+//          System.out.println("ID " + alumno.getIdAlumno() + "Nombre " + alumno.getNombre() + "Apellido" + alumno.getApellido());
+
+
+MateriaData mat=new MateriaData();
+ //Materia matematicas=new Materia("Matematicas",4,true);
+ //Materia lengua=new Materia("Lengua",2,true);
+ //Materia geografia=new Materia("Geografia",3,false);
+ 
+ //mat.guardarMateria(matematicas);
+ //mat.guardarMateria(lengua);
+ //mat.guardarMateria(geografia);
+ 
+ mat.buscarMateria(1);
+
+
+
+
+
+
+
+
+        }
     }
-    }
-}
+
+
+
+

@@ -101,9 +101,9 @@ public class UniversidadGrupo20 {
 //        insc.guardarInscripcion(inscrip5);
 
 //Listamos todas las inscripciones
+        System.out.println("Lista de todas las inscripciones");
         for (Inscripcion i : insc.listarInscripcion()) {
             System.out.println(i);
-            System.out.println("------------");
         }
         System.out.println("------------");
 

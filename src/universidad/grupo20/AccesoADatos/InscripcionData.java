@@ -18,8 +18,8 @@ import universidad.grupo20.Entidades.Materia;
 public class InscripcionData {
 
     private Connection con = null;
-    private MateriaData matDat = null;
-    private AlumnoData alumDat = null;
+    private MateriaData matDat = new MateriaData();
+    private AlumnoData alumDat = new AlumnoData();
 
     public InscripcionData() {
         con = Conexion.getConexion();
@@ -55,16 +55,14 @@ public class InscripcionData {
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);
-            AlumnoData alum = new AlumnoData();
-            MateriaData mat = new MateriaData();
 
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 Inscripcion inscrip = new Inscripcion();
                 inscrip.setIdInscripcion(rs.getInt("idInscripcion"));
                 inscrip.setNota(rs.getDouble("nota"));
-                inscrip.setAlumno(alum.buscarAlumno(rs.getInt("idAlumno")));
-                inscrip.setMateria(mat.buscarMateria(rs.getInt("idMateria")));
+                inscrip.setAlumno(alumDat.buscarAlumno(rs.getInt("idAlumno")));
+                inscrip.setMateria(matDat.buscarMateria(rs.getInt("idMateria")));
 
                 inscripciones.add(inscrip);
             }

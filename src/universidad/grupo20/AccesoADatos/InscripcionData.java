@@ -32,6 +32,7 @@ public class InscripcionData {
 
         try {
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            
             ps.setDouble(1, insc.getNota());
             ps.setInt(2, insc.getAlumno().getIdAlumno());
             ps.setInt(3, insc.getMateria().getIdMateria());
@@ -80,6 +81,7 @@ public class InscripcionData {
         return inscripciones;
     }
 
+     
     public List<Inscripcion> listarInscripcionPorAlumno(int id) {
 
         String sql = "SELECT idInscripcion,nota,idAlumno,idMateria FROM inscripcion ";
@@ -114,6 +116,7 @@ public class InscripcionData {
         return inscripciones;
     }
 
+    //Este Metodo lo hicimos a nuestra manera
     public List<Materia> obtenerMateriasCursadas(int id) {
 
         String sql = "SELECT idInscripcion,nota,idAlumno,idMateria FROM inscripcion ";
@@ -148,16 +151,16 @@ public class InscripcionData {
         return cursadas;
     }
 
-    public List<Materia> listarMateriaCursada(int idAlumno) {
+    //Este metodo es como lo hizo el profe
+    public List<Materia> listarMateriasCursadas(int idAlumno) {
         ArrayList<Materia> materias = new ArrayList<>();
 
-        String sql = "SELECT inscripcion.idMateria ,nombre, año FROM inscripcion, materia"
-                + "WHERE inscripcion.idMateria= materia.idMateria AND inscripcion.idAlumno=?; ";
+        String sql = "SELECT inscripcion.idMateria, nombre, año FROM inscripcion, materia"
+                + "WHERE inscripcion.idMateria = materia.idMateria AND inscripcion.idAlumno = ?;";
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, idAlumno);
-
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 Materia materia = new Materia();
@@ -165,14 +168,14 @@ public class InscripcionData {
                 materia.setNombre(rs.getString("nombre"));
                 materia.setAnio(rs.getInt("año"));
                 materia.setEstado(rs.getBoolean("estado"));
-
+                
                 materias.add(materia);
             }
             JOptionPane.showMessageDialog(null, "MATERIAS LISTADAS");
             ps.close();
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "ERROR AL ACCEDER A LA TABLA MATERIA ");
+            JOptionPane.showMessageDialog(null, "ERROR AL ACCEDER A LA TABLA INSCRIPCION. "+ex.getMessage());
         }
         return materias;
 
@@ -180,13 +183,12 @@ public class InscripcionData {
     
     public List<Materia> listarMateriasNoCursadas(int idAlumno) {
         ArrayList<Materia> materias = new ArrayList<>();
-        String sql = "SELECT* FROM materia WHERE estado=1 AND idMateria NOT IN"
+        String sql = "SELECT * FROM materia WHERE estado=1 AND idMateria NOT IN"
                 + "(SELECT idMateria FROM inscripcion WHERE idAlumno=?)";
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, idAlumno);
-
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 Materia materia = new Materia();

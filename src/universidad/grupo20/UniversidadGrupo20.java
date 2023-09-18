@@ -59,7 +59,7 @@ public class UniversidadGrupo20 {
 // Materia matematicas=new Materia("Matematicas",4,true);
 // Materia lengua=new Materia("Lengua",2,true);
 // Materia geografia=new Materia("Geografia",3,false);
-// 
+      
 // mat.guardarMateria(matematicas);
 // mat.guardarMateria(lengua);
 // mat.guardarMateria(geografia);
@@ -67,24 +67,86 @@ public class UniversidadGrupo20 {
 //        System.out.println(mat.buscarMateria(1));
 //        System.out.println(mat.buscarMateria(2));
 //        System.out.println(mat.buscarMateria(3));
+//        
 //        for(Materia materia: mat.listarMaterias()){
 //            System.out.println(materia);
 //        }
 
 
+        
+//        Inscripcion inscrip1 = new Inscripcion(0, alu.buscarAlumno(1), mat.buscarMateria(1));
+//        Inscripcion inscrip2 = new Inscripcion(0, alu.buscarAlumno(2), mat.buscarMateria(1));
+//        Inscripcion inscrip3 = new Inscripcion(0, alu.buscarAlumno(5), mat.buscarMateria(2));
+//        Inscripcion inscrip4 = new Inscripcion(0, alu.buscarAlumno(4), mat.buscarMateria(2));
+//        Inscripcion inscrip5 = new Inscripcion(0, alu.buscarAlumno(1), mat.buscarMateria(2));
+        
         InscripcionData insc = new InscripcionData();
-        Inscripcion inscrip1 = new Inscripcion(0, alu.buscarAlumno(1), mat.buscarMateria(1));
-        Inscripcion inscrip2 = new Inscripcion(0, alu.buscarAlumno(2), mat.buscarMateria(1));
-        Inscripcion inscrip3 = new Inscripcion(0, alu.buscarAlumno(5), mat.buscarMateria(2));
-        Inscripcion inscrip4 = new Inscripcion(0, alu.buscarAlumno(4), mat.buscarMateria(2));
+//        insc.guardarInscripcion(inscrip1);
+//        insc.guardarInscripcion(inscrip2);
+//        insc.guardarInscripcion(inscrip3);
+//        insc.guardarInscripcion(inscrip4);
+//        insc.guardarInscripcion(inscrip5);
         
-        insc.guardarInscripcion(inscrip1);
-        insc.guardarInscripcion(inscrip2);
-        insc.guardarInscripcion(inscrip3);
-        insc.guardarInscripcion(inscrip4);
-        
+        //Listamos todas las inscripciones
+//        for(Inscripcion i: insc.listarInscripcion()){
+//            System.out.println(i);
+//            System.out.println("------------");
+//        }
         
 
+        //Listamos las inscripciones por alumno
+//        System.out.println("Las inscripciones del alumno "
+//                + alu.buscarAlumno(1).getNombre() + " son:");
+//        for(Inscripcion i: insc.listarInscripcionPorAlumno(1)){
+//            System.out.println(i);
+//        }
+//        System.out.println("------------");
+        
+        
+        //Listamos las materias cursadas por alumnos con nuestro metodo
+//        System.out.println("Las materias cursadas por el alumno "
+//                + alu.buscarAlumno(1).getNombre() + " son:");
+//        for(Materia m: insc.obtenerMateriasCursadas(1)){
+//            System.out.println(m);
+//        }
+//        System.out.println("---------------");
+
+        //NO ME ANDA VERIFICAR
+        //Listamos las materias cursadas por alumnos con metodo del profe
+//        System.out.println("Las materias cursadas por el alumno "
+//                + alu.buscarAlumno(1).getNombre() + " son:");
+//        for(Materia m: insc.listarMateriasCursadas(1)){
+//            System.out.println(m);
+//        }
+//        System.out.println("---------------");
+        
+        //Litamos las materias NO cursadas por alumno
+//        System.out.println("Las materias NO cursadas por el alumno "
+//                + alu.buscarAlumno(2).getNombre() + " son:");
+//        for(Materia m: insc.listarMateriasNoCursadas(2)){
+//            System.out.println(m);
+//        }
+//        System.out.println("---------------");
+        
+        //NO ANDA VERIFICAR
+        //Borramos inscripcion Materia Alumno
+//        insc.borrarInscripcionMateriaAlumno(2, 1);
+        
+        //Actualizamos nota
+//        insc.actualizarNota(1, 1, 8);
+        
+        //Listamos los alumnos por materia
+        System.out.println("Los alumnos que cursan "
+                + mat.buscarMateria(1).getNombre() + " son:");
+        for(Alumno a: insc.listarAlumnosPorMateria(1)){
+            System.out.println(a);
+        }
+        System.out.println("---------------");
+
+
+
+
+        
     }
 }
 

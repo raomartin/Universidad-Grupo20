@@ -28,7 +28,8 @@ public class MateriaData {
       
         /*UTILIZAMOS EL METODO INSERT E INICIALIZAMOS LOS CAMPOS(DNI,APELLIDO ETC) CON CARACTERES COMODINES(?),
             PARA REMPLAZARLOS LUEGO*/
-        String sql = "INSERT INTO materia(Nombre,año,estado)VALUES (?,?,?)";
+        String sql = "INSERT INTO materia(Nombre,año,estado)"
+                + "VALUES (?,?,?)";
 
         try {
             //GENERAMOS OBJETO Y PEDIMOS QUE NOS RETORNE LAS ID GENERADAS AUTOMATICAMENTE(sql,Statement.return_generated_keys)
@@ -78,6 +79,7 @@ public class MateriaData {
 
                 materia.setAnio(rs.getInt("año"));
                 materia.setEstado(true);
+                materia.setIdMateria(id);
 
             } else {
                 JOptionPane.showMessageDialog(null, "NO EXISTE LA MATERIA");

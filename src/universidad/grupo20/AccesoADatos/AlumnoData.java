@@ -102,6 +102,10 @@ public class AlumnoData {
 
     }
     
+    
+    
+    
+    
     public Alumno buscarAlumnoPorDni(int dni){
         
         String sql="SELECT idAlumno,apellido,nombre,fechaNac FROM alumno WHERE dni=? AND estado=1";
@@ -130,7 +134,10 @@ public class AlumnoData {
         return alumno;
     }
     
-      
+    
+    
+    
+        
      public List<Alumno> listarAlumnos(){
         
         String sql="SELECT idAlumno,dni,apellido,nombre,fechaNac FROM alumno WHERE estado=1";
@@ -162,7 +169,20 @@ public class AlumnoData {
         return alumnos;
     }
         
-   
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
      
     public void modificarAlumno(Alumno alumno){
        //INGRESAMOS CODIGO PARA MODIFICAR UN DATO (UPDATE)
@@ -188,7 +208,7 @@ public class AlumnoData {
             
                     
         } catch (SQLException ex) {
-           JOptionPane.showMessageDialog(null,"ERROR AL ACCEDER A LA TABLA ALUMNOS");
+           JOptionPane.showMessageDialog(null,"ERROR AL ACCER A LA TABLA ALUMNOS");
            
         }
         

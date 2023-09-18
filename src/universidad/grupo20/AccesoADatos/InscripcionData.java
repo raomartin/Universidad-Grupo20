@@ -19,20 +19,20 @@ import universidad.grupo20.Entidades.Materia;
 public class InscripcionData {
 
     private Connection con = null;
-   // private MateriaData matDat = null;
-    //private AlumnoData alumDat = null;
+    private MateriaData matDat = null;
+    private AlumnoData alumDat = null;
 
     public InscripcionData() {
-        this.con = Conexion.getConexion();
+        con = Conexion.getConexion();
     }
 
     public void guardarInscripcion(Inscripcion insc) {
-        String sql = "INSERT INTO inscripcion(idInscripcion,idAlumno,idMateria,nota) VALUES (?,?,?,?)";
+        String sql = "INSERT INTO inscripcion(nota,idAlumno,idMateria)"
+                + "VALUES (?,?,?)";
 
         try {
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-           ps.setInt(1,insc.getIdInscripcion());
-            ps.setDouble(4, insc.getNota());
+            ps.setDouble(1, insc.getNota());
             ps.setInt(2, insc.getAlumno().getIdAlumno());
             ps.setInt(3, insc.getMateria().getIdMateria());
             ps.executeUpdate();
@@ -44,7 +44,7 @@ public class InscripcionData {
             }
             ps.close();
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "ERROR AL ACCEDER A LA TABLA INSCRIPCION"+ex);
+            JOptionPane.showMessageDialog(null, "ERROR AL ACCEDER A LA TABLA INCRIPCION");
         }
 
     }
@@ -207,7 +207,7 @@ public class InscripcionData {
 
     }
     
-   
+    
     public void borrarInscripcionMateriaAlumno(int idAlumno, int idMateria){
         String sql = "DELETE inscripcion WHERE idAlumno=? AND idMateria=?;";
         

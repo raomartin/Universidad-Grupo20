@@ -1,10 +1,19 @@
+
 package universidad.grupo20;
 
-
+import java.sql.Connection;
+import java.time.LocalDate;
+import java.time.Month;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JOptionPane;
 import universidad.grupo20.AccesoADatos.AlumnoData;
+import universidad.grupo20.AccesoADatos.Conexion;
 import universidad.grupo20.AccesoADatos.InscripcionData;
 import universidad.grupo20.AccesoADatos.MateriaData;
+import universidad.grupo20.Entidades.Alumno;
 import universidad.grupo20.Entidades.Inscripcion;
+import universidad.grupo20.Entidades.Materia;
 
 public class UniversidadGrupo20 {
 
@@ -64,16 +73,21 @@ public class UniversidadGrupo20 {
 
 
         InscripcionData insc = new InscripcionData();
-        Inscripcion inscrip1 = new Inscripcion( 0,alu.buscarAlumno(4), mat.buscarMateria(1));
-        Inscripcion inscrip3 = new Inscripcion(0, alu.buscarAlumno(6), mat.buscarMateria(2));
-        Inscripcion incrip4=new Inscripcion(0,alu.buscarAlumno(5),mat.buscarMateria(3));
+        Inscripcion inscrip1 = new Inscripcion(0, alu.buscarAlumno(1), mat.buscarMateria(1));
+        Inscripcion inscrip2 = new Inscripcion(0, alu.buscarAlumno(2), mat.buscarMateria(1));
+        Inscripcion inscrip3 = new Inscripcion(0, alu.buscarAlumno(5), mat.buscarMateria(2));
+        Inscripcion inscrip4 = new Inscripcion(0, alu.buscarAlumno(4), mat.buscarMateria(2));
+        
         insc.guardarInscripcion(inscrip1);
+        insc.guardarInscripcion(inscrip2);
         insc.guardarInscripcion(inscrip3);
+        insc.guardarInscripcion(inscrip4);
         
         
 
     }
 }
+
 
 
 

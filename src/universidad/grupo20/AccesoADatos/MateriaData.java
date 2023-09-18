@@ -65,7 +65,7 @@ public class MateriaData {
     public Materia buscarMateria(int id){
         String sql ="SELECT nombre, año FROM materia WHERE idMateria=? AND estado=1";
         
-    
+      
         Materia materia=null;
         try {
             PreparedStatement ps = cone.prepareStatement(sql);
@@ -73,9 +73,9 @@ public class MateriaData {
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 materia = new Materia();
-                
+
                 materia.setNombre(rs.getString("nombre"));
-                materia.setIdMateria(id);
+
                 materia.setAnio(rs.getInt("año"));
                 materia.setEstado(true);
 

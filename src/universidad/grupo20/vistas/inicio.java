@@ -5,16 +5,21 @@
  */
 package universidad.grupo20.Vistas;
 
+import java.awt.Graphics;
+import java.awt.Image;
+import javax.swing.ImageIcon;
+import javax.swing.JPanel;
+
 /**
  *
  * @author Usuario
  */
 public class inicio extends javax.swing.JFrame {
+FondoPanel fondo=new FondoPanel();
 
-    /**
-     * Creates new form inicio
-     */
+    
     public inicio() {
+        this.setContentPane(fondo);
         initComponents();
     }
 
@@ -129,6 +134,7 @@ public class inicio extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
@@ -175,7 +181,7 @@ public class inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-Escritorio.removeAll();
+Escritorio.removeAll();                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
 Escritorio.repaint();
 alumXMaterias mat2=new alumXMaterias();
 mat2.setVisible(true);
@@ -234,5 +240,24 @@ Escritorio.moveToFront(mat2);
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     // End of variables declaration//GEN-END:variables
+class FondoPanel extends JPanel
+{
+    
+    private Image imagen;
+    @Override
+    public void paint(Graphics g){
+        imagen=new ImageIcon(getClass().getResource("/Imagenes/messi2.jpg")).getImage();
+        g.drawImage(imagen,0,0,getWidth(),getHeight(),this);
+        setOpaque(false);
+        super.paint(g);
+        
+    }
+    
+    
+}
+
+
+
+
 }
 

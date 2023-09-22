@@ -57,7 +57,7 @@ public class AlumnoData {
 
     public Alumno buscarAlumno(int id) {
 
-        String sql = "SELECT dni,apellido,nombre,fechaNac FROM alumno WHERE idAlumno=? AND estado=1";
+        String sql = "SELECT dni,apellido,nombre,fechaNac, estado FROM alumno WHERE idAlumno=?";
 
         //variable Alumno
         Alumno alumno = null;
@@ -73,7 +73,7 @@ public class AlumnoData {
                 alumno.setNombre(rs.getString("nombre"));
                 //USAMOS TOLOCALDATE PARA CONVERTIR UN LOCALDATE A DATE
                 alumno.setFechaNac(rs.getDate("fechaNac").toLocalDate());
-                alumno.setEstado(true);
+                alumno.setEstado(rs.getBoolean("estado"));
 
             } else {
                 JOptionPane.showMessageDialog(null, "NO EXISTE EL ALUMNO");
@@ -88,7 +88,7 @@ public class AlumnoData {
 
     public Alumno buscarAlumnoPorDni(int dni) {
 
-        String sql = "SELECT idAlumno,apellido,nombre,fechaNac FROM alumno WHERE dni=? AND estado=1";
+        String sql = "SELECT idAlumno,apellido,nombre,fechaNac, estado FROM alumno WHERE dni=?";
         Alumno alumno = null;
         try {
             PreparedStatement ps = cone.prepareStatement(sql);
@@ -101,7 +101,7 @@ public class AlumnoData {
                 alumno.setApellido(rs.getString("apellido"));
                 alumno.setNombre(rs.getString("nombre"));
                 alumno.setFechaNac(rs.getDate("fechaNac").toLocalDate());
-                alumno.setEstado(true);
+                alumno.setEstado(rs.getBoolean("estado"));
             } else {
                 JOptionPane.showMessageDialog(null, "NO EXISTE ESE ALUMNO");
             }

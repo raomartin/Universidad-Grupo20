@@ -71,28 +71,28 @@ public class UniversidadGrupo20 {
 //        Materia matematicas = new Materia("Matematicas", 4, true);
 //        Materia lengua = new Materia("Lengua", 2, true);
 //        Materia geografia = new Materia("Geografia", 3, false);
-//Guardamos las materias
+////Guardamos las materias
 //        mat.guardarMateria(matematicas);
 //        mat.guardarMateria(lengua);
-//        mat.guardarMateria(geografia);
-        
-//Buscamos materias
+////        mat.guardarMateria(geografia);
+//        
+////Buscamos materias
 //        System.out.println(mat.buscarMateria(1));
 //        System.out.println(mat.buscarMateria(2));
 //        System.out.println(mat.buscarMateria(3));
 //        System.out.println("------------");
-//Listamos las materias
+////Listamos las materias
 //        for (Materia materia : mat.listarMaterias()) {
 //            System.out.println(materia);
 //        }
-
-//Creamos las inscripciones
+//
+////Creamos las inscripciones
 //        Inscripcion inscrip1 = new Inscripcion(0, alu.buscarAlumno(1), mat.buscarMateria(1));
 //        Inscripcion inscrip2 = new Inscripcion(0, alu.buscarAlumno(2), mat.buscarMateria(1));
 //        Inscripcion inscrip3 = new Inscripcion(0, alu.buscarAlumno(5), mat.buscarMateria(2));
 //        Inscripcion inscrip4 = new Inscripcion(0, alu.buscarAlumno(4), mat.buscarMateria(2));
 //        Inscripcion inscrip5 = new Inscripcion(0, alu.buscarAlumno(1), mat.buscarMateria(2));
-//Guardamos las inscripciones
+////Guardamos las inscripciones
         InscripcionData insc = new InscripcionData();
 //        insc.guardarInscripcion(inscrip1);
 //        insc.guardarInscripcion(inscrip2);

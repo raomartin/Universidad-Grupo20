@@ -230,6 +230,7 @@ public class alumno extends javax.swing.JInternalFrame {
         AlumnoData alu = new AlumnoData();
         Alumno alum = alu.buscarAlumnoPorDni(Integer.parseInt(jtDni.getText()));
         alu.borrarAlumno(alum.getIdAlumno());
+        
     }//GEN-LAST:event_jbEliminarActionPerformed
 
 

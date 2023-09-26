@@ -5,20 +5,28 @@
  */
 package universidad.grupo20.Vistas;
 
+
 import universidad.grupo20.AccesoADatos.MateriaData;
 import universidad.grupo20.Entidades.Materia;
+
+import java.awt.Graphics;
+import java.awt.Image;
+import javax.swing.ImageIcon;
+import javax.swing.JPanel;
 
 /**
  *
  * @author negan
  */
 public class materia extends javax.swing.JInternalFrame {
-
+FondoPanel fon=new FondoPanel();
     /**
      * Creates new form materia
      */
     public materia() {
+        this.setContentPane(fon);
         initComponents();
+       
     }
 
     /**
@@ -190,17 +198,19 @@ public class materia extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jtAnioActionPerformed
 
     private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
-         MateriaData gm= new MateriaData();
+        
+        MateriaData gm= new MateriaData();
        Materia mat = new Materia();
        mat.setIdMateria(Integer.parseInt(jtCodigo.getText()));
        mat.setNombre(jtNombre.getText());
        mat.setAnio(Integer.parseInt(jtAnio.getText()));
        mat.setEstado(jrbEstado.isSelected());
        gm.guardarMateria(mat);
-        LimpiarCampos();
+         LimpiarCampos();
     }//GEN-LAST:event_jbGuardarActionPerformed
 
     private void jbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarActionPerformed
+         
         int codigo = Integer.parseInt(jtCodigo.getText());
         LimpiarCampos();
         MateriaData md = new MateriaData();
@@ -211,20 +221,25 @@ public class materia extends javax.swing.JInternalFrame {
         jtNombre.setText(materia.getNombre());
         jtAnio.setText(materia.getAnio() + "");
         jrbEstado.setSelected(materia.isEstado());
+
         }
+
+        
+
 
     }//GEN-LAST:event_jbBuscarActionPerformed
 
 
     private void jbEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarActionPerformed
+        
         MateriaData bMat = new MateriaData();
         Materia mat = new Materia();
        mat.setIdMateria(Integer.parseInt(jtCodigo.getText()));
        mat.setNombre(jtNombre.getText());
        mat.setAnio(Integer.parseInt(jtAnio.getText()));
        mat.setEstado(jrbEstado.isSelected());
-        bMat.borrarMateria(mat.getIdMateria());
-        LimpiarCampos();
+       bMat.borrarMateria(mat.getIdMateria());
+       LimpiarCampos();
     }//GEN-LAST:event_jbEliminarActionPerformed
 
     private void jbNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevoActionPerformed
@@ -235,6 +250,10 @@ public class materia extends javax.swing.JInternalFrame {
 
     private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
         this.dispose();
+
+
+        
+
     }//GEN-LAST:event_jbSalirActionPerformed
 
 
@@ -254,4 +273,18 @@ public class materia extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jtCodigo;
     private javax.swing.JTextField jtNombre;
     // End of variables declaration//GEN-END:variables
+   class FondoPanel extends JPanel {
+
+    private Image imagen;
+
+    @Override
+    public void paint(Graphics g) {
+        imagen = new ImageIcon(getClass().getResource("/Imagenes/ulp.jpg")).getImage();
+        g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
+        setOpaque(false);
+        super.paint(g);
+    }
+}                 
 }
+
+

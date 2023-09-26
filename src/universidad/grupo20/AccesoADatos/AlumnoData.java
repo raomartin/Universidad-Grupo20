@@ -57,7 +57,9 @@ public class AlumnoData {
 
     public Alumno buscarAlumno(int id) {
 
-        String sql = "SELECT dni,apellido,nombre,fechaNac, estado FROM alumno WHERE idAlumno=?";
+
+        String sql = "SELECT dni,apellido,nombre,fechaNac,estado FROM alumno WHERE idAlumno=?";
+
 
         //variable Alumno
         Alumno alumno = null;
@@ -75,6 +77,7 @@ public class AlumnoData {
                 alumno.setFechaNac(rs.getDate("fechaNac").toLocalDate());
                 alumno.setEstado(rs.getBoolean("estado"));
 
+
             } else {
                 JOptionPane.showMessageDialog(null, "NO EXISTE EL ALUMNO");
 
@@ -88,7 +91,9 @@ public class AlumnoData {
 
     public Alumno buscarAlumnoPorDni(int dni) {
 
-        String sql = "SELECT idAlumno,apellido,nombre,fechaNac, estado FROM alumno WHERE dni=?";
+
+        String sql = "SELECT idAlumno,apellido,nombre,fechaNac,estado FROM alumno WHERE dni=?";
+
         Alumno alumno = null;
         try {
             PreparedStatement ps = cone.prepareStatement(sql);
@@ -131,10 +136,10 @@ public class AlumnoData {
 
                 alumnos.add(alumno);
             }
-            JOptionPane.showMessageDialog(null, "ALUMNOS LISTADOS");
+           // JOptionPane.showMessageDialog(null, "ALUMNOS LISTADOS");
             ps.close();
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "ERROR AL ACCEDER A LA TABLA ALUMNO. " + ex.getMessage());
+            //JOptionPane.showMessageDialog(null, "ERROR AL ACCEDER A LA TABLA ALUMNO. " + ex.getMessage());
         }
         return alumnos;
     }

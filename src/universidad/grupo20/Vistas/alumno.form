@@ -43,6 +43,25 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
+<<<<<<< Updated upstream
+=======
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                  <Component id="jLabel7" min="-2" pref="90" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="166" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jdcFechaNac" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
+>>>>>>> Stashed changes
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
@@ -89,6 +108,10 @@
                               </Group>
                               <Component id="jtApellido" min="-2" pref="150" max="-2" attributes="0"/>
                               <Component id="jtNombre" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
+<<<<<<< Updated upstream
+=======
+                              <Component id="jrbEstado" min="-2" max="-2" attributes="0"/>
+>>>>>>> Stashed changes
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -154,6 +177,7 @@
                       <Component id="jrbEstado" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel6" min="-2" pref="24" max="-2" attributes="0"/>
                   </Group>
+<<<<<<< Updated upstream
                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Component id="jLabel7" min="-2" pref="24" max="-2" attributes="0"/>
@@ -165,6 +189,24 @@
                       <Component id="jbEliminar" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jbGuardar" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jbSalir" alignment="3" min="-2" max="-2" attributes="0"/>
+=======
+                  <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Component id="jLabel7" min="-2" pref="24" max="-2" attributes="0"/>
+                          <EmptySpace pref="32" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jbNuevo" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jbEliminar" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jbGuardar" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jbSalir" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Component id="jdcFechaNac" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      </Group>
+>>>>>>> Stashed changes
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>

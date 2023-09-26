@@ -40,7 +40,7 @@ public class InscripcionData {
             ResultSet res = ps.getGeneratedKeys();
             if (res.next()) {
                 insc.setIdInscripcion(res.getInt(1));
-                JOptionPane.showMessageDialog(null, "INSCRIPCION GUARDADA");
+               // JOptionPane.showMessageDialog(null, "INSCRIPCION GUARDADA");
             }
             ps.close();
         } catch (SQLException ex) {
@@ -63,10 +63,12 @@ public class InscripcionData {
                 inscrip.setNota(rs.getDouble("nota"));
                 inscrip.setAlumno(alumDat.buscarAlumno(rs.getInt("idAlumno")));
                 inscrip.setMateria(matDat.buscarMateria(rs.getInt("idMateria")));
-
+                if(rs.getBoolean("estado")==true||rs.getBoolean("estado")==false){
+                   
                 inscripciones.add(inscrip);
+                }
             }
-            JOptionPane.showMessageDialog(null, "INSCRIPCIONES LISTADAS");
+            //JOptionPane.showMessageDialog(null, "INSCRIPCIONES LISTADAS");
             ps.close();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "ERROR AL ACCEDER A LA TABLA DE INSCRIPCION");
@@ -76,7 +78,7 @@ public class InscripcionData {
 
     public List<Inscripcion> listarInscripcionPorAlumno(int id) {
 
-        String sql = "SELECT idInscripcion,nota,idAlumno,idMateria FROM inscripcion ";
+        String sql = "SELECT idInscripcion,nota,idAlumno,idMateria FROM inscripcion";
         ArrayList<Inscripcion> inscripciones = new ArrayList<>();
 
         try {
@@ -91,10 +93,13 @@ public class InscripcionData {
                 inscrip.setMateria(matDat.buscarMateria(rs.getInt("idMateria")));
 
                 if (id == inscrip.getAlumno().getIdAlumno()) {
+                    
+ 
                     inscripciones.add(inscrip);
+                
                 }
             }
-            JOptionPane.showMessageDialog(null, "INSCRIPCIONES LISTADAS");
+            //JOptionPane.showMessageDialog(null, "INSCRIPCIONES LISTADAS");
             ps.close();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "ERROR AL ACCEDER A LA TABLA DE INSCRIPCION");
@@ -120,10 +125,11 @@ public class InscripcionData {
                 inscrip.setMateria(matDat.buscarMateria(rs.getInt("idMateria")));
 
                 if (id == inscrip.getAlumno().getIdAlumno()) {
+                    
                     cursadas.add(inscrip.getMateria());
                 }
             }
-            JOptionPane.showMessageDialog(null, "MATERIAS LISTADAS");
+            //JOptionPane.showMessageDialog(null, "MATERIAS LISTADAS");
             ps.close();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "ERROR AL ACCEDER A LA TABLA DE INCRIPCION");
@@ -150,7 +156,7 @@ public class InscripcionData {
 
                 materias.add(materia);
             }
-            JOptionPane.showMessageDialog(null, "MATERIAS LISTADAS");
+            //JOptionPane.showMessageDialog(null, "MATERIAS LISTADAS");
             ps.close();
 
         } catch (SQLException ex) {
@@ -178,7 +184,7 @@ public class InscripcionData {
 
                 materias.add(materia);
             }
-            JOptionPane.showMessageDialog(null, "MATERIAS LISTADAS");
+            //JOptionPane.showMessageDialog(null, "MATERIAS LISTADAS");
             ps.close();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "ERROR AL ACCEDER A LA TABLA MATERIA ");
@@ -195,7 +201,7 @@ public class InscripcionData {
             ps.setInt(1, idAlumno);
             ps.setInt(2, idMateria);
             if (ps.executeUpdate() > 0) {
-                JOptionPane.showMessageDialog(null, "Inscripcion borrada.");
+               // JOptionPane.showMessageDialog(null, "Inscripcion borrada.");
             }
             ps.close();
         } catch (SQLException ex) {

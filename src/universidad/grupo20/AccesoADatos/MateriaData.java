@@ -80,7 +80,7 @@ public class MateriaData {
 
     public List<Materia> listarMaterias() {
 
-        String sql = "SELECT idMateria,nombre,año FROM materia WHERE estado=1";
+        String sql = "SELECT idMateria,nombre,año FROM materia ";
         ArrayList<Materia> materias = new ArrayList<>();
 
         try {

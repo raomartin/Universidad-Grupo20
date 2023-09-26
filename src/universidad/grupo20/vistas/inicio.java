@@ -7,7 +7,9 @@ package universidad.grupo20.Vistas;
 
 import java.awt.Graphics;
 import java.awt.Image;
+import java.util.HashSet;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -43,7 +45,7 @@ FondoPanel fondo=new FondoPanel();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
-        jMenu5 = new javax.swing.JMenu();
+        Jsalir = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setName("Escritorio"); // NOI18N
@@ -117,8 +119,18 @@ FondoPanel fondo=new FondoPanel();
 
         jMenuBar1.add(jMenu4);
 
-        jMenu5.setText("Salir");
-        jMenuBar1.add(jMenu5);
+        Jsalir.setText("Salir");
+        Jsalir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JsalirMouseClicked(evt);
+            }
+        });
+        Jsalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JsalirActionPerformed(evt);
+            }
+        });
+        jMenuBar1.add(Jsalir);
 
         setJMenuBar(jMenuBar1);
 
@@ -191,6 +203,16 @@ Escritorio.moveToFront(mat2);
 
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
+    private void JsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JsalirActionPerformed
+
+    }//GEN-LAST:event_JsalirActionPerformed
+
+    private void JsalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JsalirMouseClicked
+     
+        
+        this.dispose();
+    }//GEN-LAST:event_JsalirMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -228,11 +250,11 @@ Escritorio.moveToFront(mat2);
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLayeredPane Escritorio;
+    private javax.swing.JMenu Jsalir;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;

@@ -5,7 +5,11 @@
  */
 package universidad.grupo20.Vistas;
 
+import java.awt.Graphics;
+import java.awt.Image;
 import java.sql.Date;
+import javax.swing.ImageIcon;
+import javax.swing.JPanel;
 import universidad.grupo20.AccesoADatos.AlumnoData;
 import universidad.grupo20.Entidades.Alumno;
 
@@ -14,11 +18,12 @@ import universidad.grupo20.Entidades.Alumno;
  * @author negan
  */
 public class alumno extends javax.swing.JInternalFrame {
-
+FondoPanel fon=new FondoPanel();
     /**
      * Creates new form alumno
      */
     public alumno() {
+        this.setContentPane(fon);
         initComponents();
     }
 
@@ -97,6 +102,21 @@ public class alumno extends javax.swing.JInternalFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< Updated upstream
+=======
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel1)
+                        .addGap(166, 166, 166))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jdcFechaNac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+>>>>>>> Stashed changes
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -130,7 +150,12 @@ public class alumno extends javax.swing.JInternalFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(jbBuscar))
                             .addComponent(jtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+<<<<<<< Updated upstream
                             .addComponent(jtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+=======
+                            .addComponent(jtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jrbEstado)))
+>>>>>>> Stashed changes
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -180,6 +205,7 @@ public class alumno extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jrbEstado)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+<<<<<<< Updated upstream
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -190,6 +216,21 @@ public class alumno extends javax.swing.JInternalFrame {
                     .addComponent(jbEliminar)
                     .addComponent(jbGuardar)
                     .addComponent(jbSalir))
+=======
+                .addGap(23, 23, 23)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jbNuevo)
+                            .addComponent(jbEliminar)
+                            .addComponent(jbGuardar)
+                            .addComponent(jbSalir)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jdcFechaNac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+>>>>>>> Stashed changes
                 .addContainerGap())
         );
 
@@ -242,6 +283,7 @@ public class alumno extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jbEliminarActionPerformed
 
 
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
@@ -263,4 +305,17 @@ public class alumno extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jtDni;
     private javax.swing.JTextField jtNombre;
     // End of variables declaration//GEN-END:variables
+class FondoPanel extends JPanel {
+
+    private Image imagen;
+
+    @Override
+    public void paint(Graphics g) {
+        imagen = new ImageIcon(getClass().getResource("/Imagenes/ulp.jpg")).getImage();
+        g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
+        setOpaque(false);
+        super.paint(g);
+    }
+}
+
 }

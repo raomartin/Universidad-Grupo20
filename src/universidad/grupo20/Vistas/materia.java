@@ -202,12 +202,16 @@ public class materia extends javax.swing.JInternalFrame {
 
     private void jbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarActionPerformed
         int codigo = Integer.parseInt(jtCodigo.getText());
+        LimpiarCampos();
         MateriaData md = new MateriaData();
         Materia materia = md.buscarMateria(codigo);
+        
+        if (materia!=null) {
+        jtCodigo.setText(codigo+"");
         jtNombre.setText(materia.getNombre());
         jtAnio.setText(materia.getAnio() + "");
         jrbEstado.setSelected(materia.isEstado());
-        LimpiarCampos();
+        }
 
     }//GEN-LAST:event_jbBuscarActionPerformed
 
@@ -230,7 +234,7 @@ public class materia extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jbNuevoActionPerformed
 
     private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
-        System.exit(0);
+        this.dispose();
     }//GEN-LAST:event_jbSalirActionPerformed
 
 

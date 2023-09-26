@@ -58,7 +58,7 @@ public class AlumnoData {
     public Alumno buscarAlumno(int id) {
 
 
-        String sql = "SELECT dni,apellido,nombre,fechaNac,estado FROM alumno WHERE idAlumno=?";
+        String sql = "SELECT dni,apellido,nombre,fechaNac,estado FROM alumno WHERE idAlumno=? AND estado = 1;";
 
 
         //variable Alumno
@@ -92,7 +92,7 @@ public class AlumnoData {
     public Alumno buscarAlumnoPorDni(int dni) {
 
 
-        String sql = "SELECT idAlumno,apellido,nombre,fechaNac,estado FROM alumno WHERE dni=?";
+        String sql = "SELECT idAlumno,apellido,nombre,fechaNac,estado FROM alumno WHERE dni=? AND estado = 1;";
 
         Alumno alumno = null;
         try {

@@ -201,7 +201,7 @@ FondoPanel fon=new FondoPanel();
         
         MateriaData gm= new MateriaData();
        Materia mat = new Materia();
-       mat.setIdMateria(Integer.parseInt(jtCodigo.getText()));
+       //mat.setIdMateria(Integer.parseInt(jtCodigo.getText()));
        mat.setNombre(jtNombre.getText());
        mat.setAnio(Integer.parseInt(jtAnio.getText()));
        mat.setEstado(jrbEstado.isSelected());

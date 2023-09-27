@@ -8,7 +8,12 @@ package universidad.grupo20.Vistas;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.sql.Date;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.TimeZone;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import universidad.grupo20.AccesoADatos.AlumnoData;
 import universidad.grupo20.Entidades.Alumno;
 
@@ -239,10 +244,17 @@ public class alumno extends javax.swing.JInternalFrame {
 
     private void jbEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarActionPerformed
         // TODO add your handling code here:
-        AlumnoData alu = new AlumnoData();
-        Alumno alum = alu.buscarAlumnoPorDni(Integer.parseInt(jtDni.getText()));
-        alu.borrarAlumno(alum.getIdAlumno());
-        limpiarCampos();
+        try{
+            int dni = Integer.parseInt(jtDni.getText());
+            AlumnoData aluData = new AlumnoData();
+            Alumno alumno = aluData.buscarAlumnoPorDni(dni);
+            if(alumno != null){
+                aluData.borrarAlumno(alumno.getIdAlumno());
+                limpiarCampos();
+            }
+        }catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(this, "Dede ingresar un numero valido en el DNI");
+        }
     }//GEN-LAST:event_jbEliminarActionPerformed
 
     private void jbNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevoActionPerformed
@@ -252,16 +264,31 @@ public class alumno extends javax.swing.JInternalFrame {
 
     private void jbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarActionPerformed
         // TODO add your handling code here:
-        int dni = Integer.parseInt(jtDni.getText());
-        limpiarCampos();
-        AlumnoData alu = new AlumnoData();
-        Alumno alum = alu.buscarAlumnoPorDni(dni);
-        if(alum != null){
-            jtDni.setText(dni+"");
-            jtApellido.setText(alum.getApellido());
-            jtNombre.setText(alum.getNombre());
-            jrbEstado.setSelected(alum.isEstado());
-            jdcFechaNac.setDate(Date.valueOf(alum.getFechaNac()));
+        try {
+            int dni = Integer.parseInt(jtDni.getText());
+            AlumnoData aluData = new AlumnoData();
+            Alumno alumno = null;
+            alumno = aluData.buscarAlumnoPorDni(dni);
+            if (alumno != null) {
+                jtDni.setText(dni + "");
+                jtApellido.setText(alumno.getApellido());
+                jtNombre.setText(alumno.getNombre());
+                jrbEstado.setSelected(alumno.isEstado());
+                
+                //ASI MAS O MENOS LO HIZO EL PROFE LUIS LO DE LA FECHA
+                LocalDate fechaLocalDate = alumno.getFechaNac();
+                Instant fechaConZonaHoraria = fechaLocalDate.atStartOfDay(ZoneId.systemDefault()).toInstant();
+                java.util.Date fechaDate = java.util.Date.from(fechaConZonaHoraria);
+                jdcFechaNac.setDate(fechaDate);
+                
+                //ASI LO HIZO UN COMPANIERO
+                /*ZoneId zonaId = TimeZone.getTimeZone("America/Argentina/Rio_Gallegos").toZoneId();
+                Instant fechaConZonaHoraria = alumno.getFechaNac().atStartOfDay(zonaId).toInstant();
+                jdcFechaNac.setDate(Date.from(fechaConZonaHoraria));*/
+                
+            }
+        }catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(this, "Dede ingresar un numero valido en el DNI");
         }
     }//GEN-LAST:event_jbBuscarActionPerformed
 
@@ -272,13 +299,47 @@ public class alumno extends javax.swing.JInternalFrame {
 
     private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
         // TODO add your handling code here:
-//        int dni = Integer.parseInt(jtDni.getText());
-//        String apellido = jtApellido.getText();
-//        String nombre = jtNombre.getText();
-//        Boolean estado = jrbEstado.getHideActionText();
-//        LocalDate fechaNac = jdcFechaNac.get
+        try{
+            int dni = Integer.parseInt(jtDni.getText());
+            String apellido = jtApellido.getText();
+            String nombre = jtNombre.getText();
+            if(apellido.isEmpty() || nombre.isEmpty()){
+                JOptionPane.showMessageDialog(this, "No puede haber campos vacios");
+                return;
+            }
+            Boolean estado = jrbEstado.isSelected();
+            //ASI MAS O MENOS LO HIZO EL PROFE LUIS LO DE LA FECHA
+            java.util.Date fechaDate = jdcFechaNac.getDate();
+            LocalDate fechaNac = fechaDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            
+            AlumnoData aluData = new AlumnoData();
+            Alumno alumno = aluData.buscarAlumnoPorDni(dni);
+            if (alumno == null){
+                alumno = new Alumno(dni, apellido, nombre, fechaNac, estado);
+                aluData.guardarAlumno(alumno);
+            }else{
+                alumno.setDni(dni);
+                alumno.setApellido(apellido);
+                alumno.setNombre(nombre);
+                alumno.setFechaNac(fechaNac);
+                aluData.modificarAlumno(alumno);
+            }
+            
+        }catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(this, "Dede ingresar un numero valido en el DNI");
+        }
+        
+        
+        
     }//GEN-LAST:event_jbGuardarActionPerformed
 
+    private void limpiarCampos(){
+        jtDni.setText("");
+        jtApellido.setText("");
+        jtNombre.setText("");
+        jrbEstado.setSelected(true);
+        jdcFechaNac.setDate(null);
+     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
@@ -300,13 +361,5 @@ public class alumno extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jtDni;
     private javax.swing.JTextField jtNombre;
     // End of variables declaration//GEN-END:variables
-    
-    private void limpiarCampos(){
-        jtDni.setText("");
-        jtApellido.setText("");
-        jtNombre.setText("");
-        jrbEstado.setSelected(false);
-        jdcFechaNac.setDate(null);
-     }
     
 }
